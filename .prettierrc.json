@@ -1,0 +1,8 @@
+{
+    "trailingComma": "none",
+    "tabWidth": 4,
+    "useTabs": false,
+    "semi": false,
+    "braceStyle": "1tbs",
+    "printWidth": 90
+}
