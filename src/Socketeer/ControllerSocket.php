@@ -24,7 +24,11 @@ class ControllerSocket {
     private function serializeMessage(string $action, $data = null, $meta = null) {
         $meta = $meta ?? [];
         $meta['ts'] = time();
-        $data = $data ?? [];
+        if (is_object($data) && method_exists($data, 'repr')) {
+            $data = $data->repr();
+        } else {
+            $data = $data ?: [];
+        }
         return json_encode([$action, $meta, $data]);
     }
 
