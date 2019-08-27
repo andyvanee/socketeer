@@ -63,8 +63,9 @@ class ControllerAction {
             return $obj ? $this->controller->$action($obj) : $this->controller->$action();
         } catch (\Throwable $th) {
             return $this->controller->log(
-                "Uncaught Exception in controller action '%s'\n%s\n",
+                "Uncaught Exception in controller action '%s'\n%s\n%s\n",
                 $action,
+                $th->getMessage(),
                 $th->getTraceAsString()
             );
         }
